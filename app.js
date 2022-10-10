@@ -2,6 +2,9 @@ import Express from 'express';
 import bodyParser from 'body-parser';
 import db from './database/config.js';
 import studentRoutes from './routes/studentRoute.js';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const port = process.env.PORT || 3000;
 const dbName = process.env.DB_NAME || 'student';

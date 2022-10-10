@@ -7,7 +7,7 @@ html(lang="pt-br")
     title Home
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css')
     script(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js')
-    script(href='https://code.jquery.com/jquery-3.6.1.min.js')
+    script(href='https://code.jquery.com/jquery-3.6.1.js' integrity='sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=' crossorigin='anonymous')
     style(type='text/css').
       body  {
         padding: 8px !important;
@@ -32,7 +32,7 @@ html(lang="pt-br")
               for student in students
                 tr 
                   td 
-                    h2(class='ui center aligned header') A 
+                    h2(class='ui center aligned header') #{student.rating}
                   td 
                     div(class='ui star rating' data-rating='5' data-max-rating='5')
                   td(class='right aligned') #{student.averagePercent}%
@@ -43,16 +43,18 @@ html(lang="pt-br")
                       div(class='content') #{student.name}
                         div(class='sub header') Student
                   td #{student.average}
-    script.
-      $('.message .close')
-        .on('click', function() {
-          $(this)
-            .closest('.message')
-            .transition('fade')
-          ;
-        })
-      ;
+  script.
+    $(document).ready(function(){
+        $('.message .close')
+          .on('click', function() {
+            $(this)
+              .closest('.message')
+              .transition('fade')
+            ;
+          })
+        ;
 
-      $('.rating')
-        .rating('enable')
-      ;
+        $('.rating')
+          .rating('enable')
+        ;
+      });

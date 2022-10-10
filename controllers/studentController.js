@@ -5,11 +5,13 @@ export default {
   index: async (req, res, next) => {
     const students = await StudentRepository.findAll();
     const transformData = students.map((student) => {
+      const average = student.first_grade + student.second_grade;
       return {
         name: student.name,
-        averagePercent: (student.first_grade + student.second_grade) / 2,
-        average: (student.first_grade + student.second_grade) / 2,
+        averagePercent: average / 2,
+        average: average / 2,
         length: student.first_grade + student.second_grade,
+        rating: (average < 6) ? 'F': 'A',
       };
     });
     res.render('index', {students: transformData});
