@@ -7,6 +7,7 @@ html(lang="pt-br")
     title Register Student
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css')
     script(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js')
+    script(href='https://code.jquery.com/jquery-3.6.1.min.js' integrity='sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=' crossorigin='anonymous')
     style(type='text/css').
       body  {
         padding: 8px !important;
@@ -17,16 +18,22 @@ html(lang="pt-br")
       a(class='active item' href='/register') Register Student
     div(class='ui text container segment')
       h3(class='ui dividing header') Students
+      if result
+        div(class='ui positive mini message')
+          i(class='close icon')
+          div(class='header') Estudante registrado com sucesso!
+            p Você pode ver o estudante e sua nota na 
+              a(href='/') página inicial
       div(class='ui one column grid centered')
         div(class='column')
-          form(class='ui form')
+          form(class='ui form' method='POST')
             div(class='field')
               label Name
               input(type='text' name='name' placeholder='Name')
             div(class='field')
               label First Grade
-              input(type='number' name='first-grade' placeholder='First Grade')
+              input(type='number' name='firstGrade' placeholder='First Grade')
             div(class='field')
               label Second Grade 
-              input(type='number' name='second-grade' placeholder='Second Grade')
+              input(type='number' name='secondGrade' placeholder='Second Grade')
             button(class='fluid ui primary button' type='submit') Submit

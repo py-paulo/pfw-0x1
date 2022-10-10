@@ -8,7 +8,7 @@ export default db.define('student', {
     primaryKey: true,
     allowNull: false,
   },
-  nome: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },

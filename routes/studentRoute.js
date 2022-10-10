@@ -5,6 +5,7 @@ import studentController from '../controllers/studentController.js';
 const routes = Router();
 
 routes.get('/', studentController.index);
-routes.get('/register', studentController.register);
+routes.get('/register', studentController.get);
+routes.post('/register', studentController.post);
 
 export default routes;
