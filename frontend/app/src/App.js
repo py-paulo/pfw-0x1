@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import {
   Menu,
   Container,
@@ -6,9 +5,8 @@ import {
   Header,
   Icon,
   Divider,
-  Table,
-  Rating,
-  Tab
+  Button,
+  Form
 } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -32,46 +30,27 @@ function App() {
             <Icon name='address book' />
             <Header.Content>
               Students
-              <Header.Subheader>List of Average</Header.Subheader>
+              <Header.Subheader>Add</Header.Subheader>
             </Header.Content>
           </Header>
 
           <Divider />
 
-          <Table celled padded>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell singleLine>Evidence Rating</Table.HeaderCell>
-                <Table.HeaderCell>Efficacy</Table.HeaderCell>
-                <Table.HeaderCell>Consensus</Table.HeaderCell>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Grade</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>
-                  <Header as='h2' textAlign='center'>
-                    A
-                  </Header>
-                </Table.Cell>
-                <Table.Cell>
-
-                </Table.Cell>
-                <Table.Cell textAlign='right'>
-                  80% <br/>
-                  <a href='#'>18 questions</a>
-                </Table.Cell>
-                <Table.Cell>
-                  <Header as='h4'>
-                    <Header.Content>Paulo</Header.Content>
-                    <Header.Subheader>Student</Header.Subheader>
-                  </Header>
-                </Table.Cell>
-                <Table.Cell>8.5</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
+          <Form>
+            <Form.Field>
+              <label>Name</label>
+              <input placeholder='Name' name='name' required />
+            </Form.Field>
+            <Form.Field>
+              <label>First Grade</label>
+              <input placeholder='First Grade' type='number' name='firstGrade' required />
+            </Form.Field>
+            <Form.Field>
+              <label>Second Grade</label>
+              <input placeholder='Second Grade' type='number' name='secondGrade' required />
+            </Form.Field>
+            <Button type='submit' fluid primary>Submit</Button>
+          </Form>
 
         </Segment>
       </Container>

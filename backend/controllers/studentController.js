@@ -14,23 +14,25 @@ export default {
         rating: (average < 6) ? 'F': 'A',
       };
     });
-    res.render('index', {students: transformData});
+    res.status(200).json({students: transformData});
     return next();
   },
   get: async (req, res, next) => {
-    res.render('register');
+    res.status(405);
     return next();
   },
   post: async (req, res, next) => {
-    console.log(req.body);
     const {name, firstGrade, secondGrade} = req.body;
     const student = await StudentRepository.create({
       name: name,
       first_grade: firstGrade,
       second_grade: secondGrade,
     });
+
     if (student.dataValues.id) {
-      res.render('register', {result: student.dataValues});
+      res.status(201).json({result: student.dataValues});
+    } else {
+      res.status(400).json({message: 'error to add student.'});
     }
     return next();
   },
